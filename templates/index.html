@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block bodyblock %}
+    This is Home Page. <br>
+    {% comment %} 
+        {{ text | cut:"hello" }}  <br>
+        {{number | add:"50"}}  <br>
+        {{dt | date:"d-M-Y "}}  <br>
+        {{data | default:"Nothing"}}  <br>
+        {{fruit | pluralize:"ies,y"}}  <br>
+        {{text | truncatewords:"2"}}
+        {{link | urlize}}
+        {{text | wordcount}}
+    {% endcomment %}
+
+{% if Data %}
+
+    <table class="table">
+     <tr>
+        <td> Student Name  </td>
+        <td> Address  </td>        
+        <td> Actions  </td>                
+        <td> Actions  </td>                
+     </tr>
+     {% for userData in Data  %}
+     <tr>
+        <td> {{ userData.s_name }} </td>
+        <td> {{ userData.s_address }} </td> 
+        <td> <a href="{% url 'about' userData.id %}" class="btn btn-info">Edit</a></td> 
+        <td> 
+        <form action="{% url 'delete' userData.id %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Delete" class="btn btn-danger">
+        </form>
+        </td> 
+     <tr>
+     {% endfor %}
+    </table>
+
+{% endif %}
+
+{% endblock bodyblock %}

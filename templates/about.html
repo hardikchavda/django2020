@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block bodyblock %}
+    This is About Page.
+
+
+   <form class="form" method="POST" style="margin-left:200px; width:50% ;box-shadow:0 0 1px; padding:20px;" >
+    <fieldset>
+    {{form.as_p}}
+    {% csrf_token %}
+    <input type="submit" class="btn btn-primary" value="Submit">    
+    </fieldset>
+    </form>
+
+    
+{% endblock bodyblock %}

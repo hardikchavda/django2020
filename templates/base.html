@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-responsive.css' %}">
+    <title>Django</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar-inner">
+            <a class="brand" href="{% url 'index' %}">Title</a>
+            <ul class="nav">
+                <li><a href="{% url 'index' %}">Home</a></li>
+                {% comment %} <li><a href="{% url 'about' %}">ABout</a></li> {% endcomment %}
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div>
+        {% block bodyblock %}
+
+        {% endblock %}
+    </div>
+
+
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+</body>
+
+</html>
